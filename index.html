@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dev.finance$</title>
+
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header color">
+            <img src="./assets/logo.svg" alt="Logo Dev Finance">
+
+            <div class="toggle">
+                <input id="switch" type="checkbox" name="theme">
+                <label for="switch">Toggle</label>
+            </div>
+        </header>
+
+        
+
+        <main id="container">
+            <section id="balance">
+                <h2 class="screen-reader-only"> Balanço </h2>
+
+                <div class="card">
+                    <h3>
+                        <span>Entradas</span>
+                        <img src="./assets/income.svg" alt="Imagem de entradas">
+                    </h3>
+
+                    <p id="incomeDisplay">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>
+                        <span>Saídas</span>
+                        <img src="./assets/expense.svg" alt="Imagem de saídas">
+                    </h3>
+
+                    <p id="expenseDisplay">R$ 0,00</p>
+                </div>
+
+                <div class="card total">
+                    <h3>
+                        <span>Total</span>
+                        <img src="./assets/total.svg" alt="Imagem de total">
+                    </h3>
+                    
+                    <p id="totalDisplay">R$ 0,00</p>
+                </div>
+            </section>
+
+            <a href="#" class="button new" onclick="Modal.activation()">+ Nova transação</a>
+           
+            <section id="transactions">
+                <h2 class="screen-reader-only"> Transações </h2>                
+
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th headers="description">Descrição</th>
+                            <th headers="amount">Valor</th>
+                            <th headers="date">Data</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </section> 
+        </main>
+
+        <div class="modal-overlay">
+            <div id="modal-content">
+                <div id="form">
+                    <h2>Nova Transação</h2>
+                    <form action="" onsubmit="Form.submit(event)">
+                        <div class="input-group">
+                            <label for="description" class="screen-reader-only">Descrição</label>
+                            <input type="text" id="description-input" name="description-input" placeholder="Descrição">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="amount" class="screen-reader-only">Valor</label>
+                            <input type="number" id="amount-input" name="amount-input" placeholder="0,00" step="0.01">
+                        </div>
+
+                        <small>Use o sinal - (negativo) para despesas e . (ponto) para casas decimais</small>
+
+                        <div class="input-group">
+                            <label for="date" class="screen-reader-only">Data</label>
+                            <input type="date" id="date-input" name="date-input">
+                        </div>
+
+                        <div class="input-group actions">
+                            <a href="#" class="button cancel" onclick="Modal.activation()">Cancelar</a>
+
+                            <button>Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer><p>dev.finance$</p></footer>
+        
+        <script src="./scripts/script.js"></script>
+        <script src="./scripts/themeScript.js"></script>
+    </body>
+</html>
